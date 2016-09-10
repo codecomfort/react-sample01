@@ -1,5 +1,4 @@
 (function (window, document) {
-
     var layout   = document.getElementById('layout'),
         menu     = document.getElementById('menu'),
         menuLink = document.getElementById('menuLink');
@@ -9,13 +8,14 @@
             length = classes.length,
             i = 0;
 
+        // マッチした className を除去
         for(; i < length; i++) {
           if (classes[i] === className) {
             classes.splice(i, 1);
             break;
           }
         }
-        // The className is not found
+        // className が見つからないならケツに付けておく
         if (length === classes.length) {
             classes.push(className);
         }
