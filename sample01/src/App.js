@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/side-menu.css';
 
+
 class MenuLink extends Component {
     render() {
       return (
@@ -36,8 +37,16 @@ class Menu extends Component {
     }
 }
 
+
 class Main extends Component {
   render () {
+    const SAMPLE_DATA = [
+      { src: "http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg", alt: "Peyto Lake"},
+      { src: "http://farm3.staticflickr.com/2813/9069585985_80da8db54f.jpg", alt: "Train"},
+      { src: "http://farm6.staticflickr.com/5456/9121446012_c1640e42d0.jpg", alt: "T-Shirt Store"},
+      { src: "http://farm8.staticflickr.com/7357/9086701425_fda3024927.jpg", alt: "Mountain"}
+    ]
+
     return (
       <div id="main">
           <div className="header">
@@ -58,16 +67,16 @@ class Main extends Component {
 
               <div className="pure-g">
                   <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src="http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg" alt="Peyto Lake" />
+                      <img className="pure-img-responsive" src={SAMPLE_DATA[0].src} alt={SAMPLE_DATA[0].alt} />
                   </div>
                   <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src="http://farm3.staticflickr.com/2813/9069585985_80da8db54f.jpg" alt="Train" />
+                      <img className="pure-img-responsive" src={SAMPLE_DATA[1].src} alt={SAMPLE_DATA[1].alt} />
                   </div>
                   <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src="http://farm6.staticflickr.com/5456/9121446012_c1640e42d0.jpg" alt="T-Shirt Store" />
+                      <img className="pure-img-responsive" src={SAMPLE_DATA[2].src} alt={SAMPLE_DATA[2].alt} />
                   </div>
                   <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src="http://farm8.staticflickr.com/7357/9086701425_fda3024927.jpg" alt="Mountain" />
+                      <img className="pure-img-responsive" src={SAMPLE_DATA[3].src} alt={SAMPLE_DATA[3].alt} />
                   </div>
               </div>
 
