@@ -67,18 +67,13 @@ class Main extends Component {
               </p>
 
               <div className="pure-g">
-                  <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src={ this.props.photos[0].src } alt={ this.props.photos[0].alt } />
-                  </div>
-                  <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src={ this.props.photos[1].src } alt={ this.props.photos[1].alt } />
-                  </div>
-                  <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src={ this.props.photos[2].src } alt={ this.props.photos[2].alt } />
-                  </div>
-                  <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src={ this.props.photos[3].src } alt={ this.props.photos[3].alt } />
-                  </div>
+                { this.props.photos.map( (photo) => {
+                    return (
+                      <div className="pure-u-1-4" key={ photo.id }>
+                        <img className="pure-img-responsive" src={ photo.src } alt={ photo.alt } />
+                      </div>
+                    )
+                })}
               </div>
 
               <h2 className="content-subhead">Try Resizing your Browser</h2>
