@@ -1,18 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import './css/side-menu.css';
+import MenuLink from './components/MenuLink'
 
-
-class MenuLink extends Component {
-    render() {
-      return (
-        //* Menu toggle
-        <a href="#menu" id="menuLink" className="menu-link">
-            {/* Hamburger icon */}
-            <span></span>
-        </a>
-      )
-    }
-}
 
 class Menu extends Component {
     render() {
