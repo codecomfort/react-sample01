@@ -9,4 +9,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-onStart(window, document)
+onStart(document)

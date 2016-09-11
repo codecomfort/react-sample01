@@ -1,34 +1,37 @@
-export default function onStart(window, document) {
-    var layout   = document.getElementById('layout'),
-        menu     = document.getElementById('menu'),
-        menuLink = document.getElementById('menuLink');
+let onStart = (doc) => {
+    let $ = (e) => doc.getElementById(e)
 
-    function toggleClass(element, className) {
-        var classes = element.className.split(/\s+/),
-            length = classes.length,
-            i = 0;
+    const layout   = $('layout'),
+          menu     = $('menu'),
+          menuLink = $('menuLink');
 
-        // マッチした className を除去
-        for(; i < length; i++) {
-          if (classes[i] === className) {
-            classes.splice(i, 1);
-            break;
-          }
+    let toggleClass = (element, className) => {
+      let classes = element.className.split(/\s+/)
+      const len = classes.length
+
+      // マッチした className を除去
+      for(let ii = 0; ii < len; ii++) {
+        if (classes[ii] === className) {
+          classes.splice(ii, 1);
+          break;
         }
-        // className が見つからないならケツに付けておく
-        if (length === classes.length) {
-            classes.push(className);
-        }
+      }
+      // className が見つからないならケツに付けておく
+      if (len === classes.length) {
+          classes.push(className);
+      }
 
-        element.className = classes.join(' ');
+      element.className = classes.join(' ');
     }
 
-    menuLink.onclick = function (e) {
-        var active = 'active';
+    menuLink.onclick = (ev) => {
+        const active = 'active';
 
-        e.preventDefault();
+        ev.preventDefault();
         toggleClass(layout, active);
         toggleClass(menu, active);
         toggleClass(menuLink, active);
     };
 }
+
+export default onStart
