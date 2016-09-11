@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './css/side-menu.css';
 
 
@@ -39,14 +39,15 @@ class Menu extends Component {
 
 
 class Main extends Component {
-  render () {
-    const SAMPLE_DATA = [
-      { src: "http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg", alt: "Peyto Lake"},
-      { src: "http://farm3.staticflickr.com/2813/9069585985_80da8db54f.jpg", alt: "Train"},
-      { src: "http://farm6.staticflickr.com/5456/9121446012_c1640e42d0.jpg", alt: "T-Shirt Store"},
-      { src: "http://farm8.staticflickr.com/7357/9086701425_fda3024927.jpg", alt: "Mountain"}
-    ]
+  static propTypes = {
+    photos: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      src: PropTypes.string,
+      alt: PropTypes.string
+    }))
+  }
 
+  render () {
     return (
       <div id="main">
           <div className="header">
@@ -67,16 +68,16 @@ class Main extends Component {
 
               <div className="pure-g">
                   <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src={SAMPLE_DATA[0].src} alt={SAMPLE_DATA[0].alt} />
+                      <img className="pure-img-responsive" src={ this.props.photos[0].src } alt={ this.props.photos[0].alt } />
                   </div>
                   <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src={SAMPLE_DATA[1].src} alt={SAMPLE_DATA[1].alt} />
+                      <img className="pure-img-responsive" src={ this.props.photos[1].src } alt={ this.props.photos[1].alt } />
                   </div>
                   <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src={SAMPLE_DATA[2].src} alt={SAMPLE_DATA[2].alt} />
+                      <img className="pure-img-responsive" src={ this.props.photos[2].src } alt={ this.props.photos[2].alt } />
                   </div>
                   <div className="pure-u-1-4">
-                      <img className="pure-img-responsive" src={SAMPLE_DATA[3].src} alt={SAMPLE_DATA[3].alt} />
+                      <img className="pure-img-responsive" src={ this.props.photos[3].src } alt={ this.props.photos[3].alt } />
                   </div>
               </div>
 
@@ -92,14 +93,21 @@ class Main extends Component {
 
 class App extends Component {
   render() {
+    const SAMPLE_DATA = [
+      { id: 0, src: "http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg", alt: "Peyto Lake"},
+      { id: 1, src: "http://farm3.staticflickr.com/2813/9069585985_80da8db54f.jpg", "alt": "Train"},
+      { id: 2, src: "http://farm6.staticflickr.com/5456/9121446012_c1640e42d0.jpg", alt: "T-Shirt Store"},
+      { id: 3, src: "http://farm8.staticflickr.com/7357/9086701425_fda3024927.jpg", alt: "Mountain"}
+    ]
     return (
       <div id="layout">
           <MenuLink />
           <Menu />
-          <Main />
+          <Main photos={ SAMPLE_DATA } />
       </div>
     );
   }
 }
+
 
 export default App;
