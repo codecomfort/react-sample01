@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import './css/side-menu.css';
 import MenuLink from './components/MenuLink'
 import Menu from './components/Menu'
