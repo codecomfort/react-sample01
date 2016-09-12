@@ -3,6 +3,9 @@ import './css/side-menu.css';
 import MenuLink from './components/MenuLink'
 import Menu from './components/Menu'
 import Main from './components/Main'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 class App extends Component {
   render() {
@@ -13,14 +16,19 @@ class App extends Component {
       { id: 3, src: "http://farm8.staticflickr.com/7357/9086701425_fda3024927.jpg", alt: "Mountain"}
     ]
     return (
-      <div id="layout">
-          <MenuLink />
-          <Menu />
-          <Main photos={ SAMPLE_DATA } />
-      </div>
+      <MuiThemeProvider>
+        <div id="layout">
+            <MenuLink />
+            <Menu />
+            <Main photos={ SAMPLE_DATA }
+              onIncrement={ this.props.onIncrement }
+              onDecrement={ this.props.onDecrement }
+              value={ this.props.value }
+            />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
-
 
 export default App;

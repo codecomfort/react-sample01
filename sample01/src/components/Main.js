@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import CustomBadge from './CustomBadge'
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 class Main extends Component {
   static propTypes = {
@@ -16,6 +19,10 @@ class Main extends Component {
               <h1>Page Title</h1>
               <h2>A subtitle for your page goes here</h2>
           </div>
+
+          <CustomBadge badgeContent={ this.props.value }/>
+          <RaisedButton label="INCREMENT" onClick={ this.props.onIncrement } />
+          <RaisedButton label="DECREMENT" onClick={ this.props.onDecrement }/>
 
           <div className="content">
               <h2 className="content-subhead">How to use this layout</h2>
